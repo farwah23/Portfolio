@@ -7,6 +7,7 @@ A responsive, accessible single-page portfolio built with semantic HTML, modern 
 ```text
 umme-farwa-portfolio/
 ├── assets/
+│   ├── uf-favicon.png       # Browser-tab UF logo
 │   └── umme-farwa-hero.jpg  # Optimized hero portrait
 ├── index.html             # Content and page structure
 ├── styles.css             # Design system and responsive styles
@@ -28,14 +29,14 @@ Then open `http://localhost:4173`.
 
 1. **About text:** Edit the `#about` section in `index.html`.
 2. **Skills:** Add, remove, or reorder `.skill-card` elements inside `#skill-track`. JavaScript duplicates these cards for a seamless automatic loop; the duplicates are hidden from assistive technology. Visitors can grab and drag the cards with a mouse or pointer, swipe on touchscreens, use a trackpad, or press the Left/Right arrow keys while the track is focused. The animation pauses during interaction and resumes 1.2 seconds after release. Change `elapsed * 0.025` in `script.js` to adjust the animation speed or `resumeSkillAnimation(1200)` to adjust the restart delay. Card widths are controlled by `.skill-grid` in the desktop, tablet, and mobile CSS rules.
-3. **Projects:** The Selected Projects section uses a responsive four-card editorial grid without screenshots. The cards use alternating dark, theme-related ink surfaces with cream text and orange project-name buttons. Each card includes the project category, a concise description, and a button that opens the live website securely in a new tab. Edit the content or destinations directly in `index.html`; adjust the card layout and colors under `.project-grid` and `.project-card` in `styles.css`.
+3. **Projects:** The Selected Projects section uses a responsive five-card editorial grid without screenshots. The cards use alternating dark, theme-related ink surfaces with cream text and orange project-name buttons. Each card includes the project category, a concise description, and a button that opens the live website securely in a new tab. Edit the content or destinations directly in `index.html`; adjust the card layout and colors under `.project-grid` and `.project-card` in `styles.css`.
 4. **Contact:** The demo copies a prepared message to the visitor's clipboard. For production, connect the form to Formspree, Netlify Forms, your own PHP endpoint, or another form service in `script.js`.
 5. **Links and résumé:** Add GitHub, LinkedIn, email, and résumé links once those details are available.
 6. **Colors:** The requested palette is stored as CSS variables at the top of `styles.css`.
 
 ## Footer social icons
 
-The footer uses a responsive, two-column contact layout inspired by the supplied reference: a large “Let’s work together.” message sits beside labeled links for Email, WhatsApp, Instagram, Facebook, and X/Twitter. Each uppercase platform label includes its Font Awesome icon, with the account name or address displayed beneath it. Destinations are defined directly in `index.html`; external profiles open in a new tab with `noopener noreferrer`, while Email uses `mailto:`. Footer layout, grid spacing, colors, and hover motion can be adjusted in the `.footer` rules in `styles.css`.
+The footer uses a responsive, two-column contact layout inspired by the supplied reference: a large “Let’s work together.” message sits beside labeled links for Email, WhatsApp, Instagram, Facebook, and X/Twitter. On desktop screens wider than 980px, the heading is raised 148px to align with the upper Email and WhatsApp area; tablet and mobile layouts keep the original position. Each uppercase platform label includes its Font Awesome icon, with the account name or address displayed beneath it. Destinations are defined directly in `index.html`; external profiles open in a new tab with `noopener noreferrer`, while Email uses `mailto:`. Footer layout, grid spacing, colors, and hover motion can be adjusted in the `.footer` rules in `styles.css`.
 
 The hero portrait uses a circular 1:1 crop with a static, thin orange border controlled by `.hero-portrait` in `styles.css`.
 
@@ -54,6 +55,10 @@ The sun/moon button in the navigation switches between the original cream day th
 ## Hero portrait
 
 The right side of the hero uses `assets/umme-farwa-hero.jpg`, an optimized 900×1200 portrait. To replace it later, export a 3:4 JPG or WebP, keep the subject centered, and either reuse the same filename or update the image `src` in `index.html`. The intrinsic `width` and `height` attributes should match the replacement asset to prevent layout shifting.
+
+## Browser tab icon
+
+The browser tab uses the isolated circular “UF” mark from the supplied brand image. The PNG asset is stored at `assets/uf-favicon.png` and connected through the `rel="icon"` link in `index.html`.
 
 ## Design tokens
 
