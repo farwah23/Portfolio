@@ -5,6 +5,7 @@ const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
 const sections = [...document.querySelectorAll('main section[id]')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)');
+const mobileViewport = window.matchMedia('(max-width: 720px)');
 const tiltTargets = [...document.querySelectorAll('.hero-portrait, .project-card, .contact-form')];
 const themeToggle = document.querySelector('.theme-toggle');
 const themeToggleStatus = document.querySelector('.theme-toggle-status');
@@ -94,7 +95,7 @@ const setupSmoothScroll = () => {
   locomotiveScroll = undefined;
   document.documentElement.classList.remove('has-scroll-smooth');
 
-  if (!scrollContainer || !window.LocomotiveScroll || reducedMotion.matches) return;
+  if (!scrollContainer || !window.LocomotiveScroll || reducedMotion.matches || mobileViewport.matches) return;
 
   locomotiveScroll = new window.LocomotiveScroll({
     el: scrollContainer,
@@ -102,7 +103,7 @@ const setupSmoothScroll = () => {
     lerp: .075,
     multiplier: .9,
     tablet: { smooth: true },
-    smartphone: { smooth: true },
+    smartphone: { smooth: false },
   });
 
   locomotiveScroll.on('scroll', (instance) => {
@@ -502,6 +503,10 @@ window.addEventListener('load', () => locomotiveScroll?.update(), { once: true }
 reducedMotion.addEventListener('change', () => {
   setupSmoothScroll();
   setupSkillLoop();
+  setupPortfolioMotion();
+});
+mobileViewport.addEventListener('change', () => {
+  setupSmoothScroll();
   setupPortfolioMotion();
 });
 

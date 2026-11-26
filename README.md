@@ -46,7 +46,7 @@ GSAP and ScrollTrigger power the portfolio’s coordinated 3D motion system. The
 
 ## Locomotive smooth scrolling
 
-Locomotive Scroll 4.1.4 provides eased scrolling across the main page and footer while the fixed navbar remains outside the transformed scroll container. Its scroll position is synchronized with GSAP ScrollTrigger through `scrollerProxy`, so section reveals and footer motion use the same source of truth. Internal navigation links use Locomotive’s `scrollTo` method and account for the fixed header. The integration automatically falls back to native scrolling when the library is unavailable or the visitor enables reduced motion. The pinned CDN assets and `data-scroll-container` wrapper live in `index.html`; initialization, GSAP synchronization, anchors, resizing, and cleanup live in `script.js`.
+Locomotive Scroll 4.1.4 provides eased scrolling across the main page and footer on tablet and desktop screens while the fixed navbar remains outside the transformed scroll container. Phones at 720px and below use native touch scrolling to avoid artificial inertia and reduce animation work. Locomotive’s scroll position is synchronized with GSAP ScrollTrigger through `scrollerProxy`, so section reveals and footer motion use the same source of truth. Internal navigation links use Locomotive’s `scrollTo` method when smooth scrolling is active and fall back to native `scrollIntoView` on phones. The integration also falls back to native scrolling when the library is unavailable or the visitor enables reduced motion. The pinned CDN assets and `data-scroll-container` wrapper live in `index.html`; initialization, GSAP synchronization, anchors, breakpoint handling, resizing, and cleanup live in `script.js`.
 
 ## Day and night mode
 
